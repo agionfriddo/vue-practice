@@ -1,19 +1,50 @@
 <html>
   <head>
-    <link rel="stylesheet" href="./styles.css" /> 
+    <link rel="stylesheet"
+    href="https://unpkg.com/bulma/css/bulma.css" />  
   </head>
   <body>
     <div id="app">
-      <ul>
-        <li v-for="number in numbers" :key="number.id">
-          <p>{{ number.value }}</p>
-          <input placeholder="type something...">
-        </li>
-      </ul>
-      <button @click="shuffle">Shuffle!</button>
+      <div class="field">
+        <label class="label">Name</label>
+        <input 
+          v-model="name" 
+          class="input" 
+          type="text" 
+          placeholder="Text input"
+        />
+      </div>
+      <div class="field">
+        <label class="label">Subject</label>
+        <select v-model="subject">
+          <option value="" disabled>Select dropdown</option>
+          <option>Engineering</option>
+          <option>Computer Science</option>
+          <option>Biology</option>
+          <option>Other...</option>
+        </select>
+      </div>
+      <div class="field">
+        <input v-model="termsAndConditions"
+        type="checkbox" />
+        <label class="checkbox">I agree to the terms and conditions</label>
+      </div>
+      <div class="field"> <label class="radio">
+        <input v-model="yesOrNo" type="radio" value="Yes" />
+        Yes
+        </label>
+        <label class="radio">
+          <input v-model="yesOrNo" type="radio" value="No" />
+          No
+        </label>
+      </div>
+      <div class="field">
+        <button class="button is-info" @click="submit">
+          Submit
+        </button>
+      </div>
     </div>
     <script src="https://unpkg.com/vue"></script> 
     <script src="./main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lodash/lodash.js"> </script>
   </body>
 </html>
